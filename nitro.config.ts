@@ -16,5 +16,9 @@ export default defineNitroConfig({
       driver: "fs",
       base: ".data/comments",
     },
+    public: {
+      driver: 'fs',
+      base: 'public',
+    }
   },
 });
