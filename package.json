@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nitro build",
+    "dev": "nitro dev",
+    "prepare": "nitro prepare",
+    "preview": "node .output/server/index.mjs"
+  },
+  "devDependencies": {
+    "nitropack": "latest"
+  },
+  "packageManager": "pnpm@8.14.0+sha256.9cebf61abd83f68177b29484da72da9751390eaad46dfc3072d266bfbb1ba7bf",
+  "dependencies": {
+    "htm": "^3.1.1",
+    "pathe": "^1.1.2",
+    "vhtml": "^2.2.0"
+  }
+}
