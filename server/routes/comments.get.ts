@@ -9,6 +9,11 @@ export default eventHandler(async () => {
     })
   );
   return html`<ul id="comments">
-    ${comments.map((c) => html`<${ListItem} text=${c.value.text}> -${c.value.user} <//>`)}
+    ${comments.map(
+      (c) =>
+        html`<${ListItem} text=${c.value.text}>
+          <span class="text-xs text-$pico-secondary"> -${c.value.user}</span>
+        <//>`
+    )}
   </ul>`;
 });

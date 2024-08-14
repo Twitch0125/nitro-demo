@@ -1,3 +1,3 @@
 export default function (props: { text: string }) {
-  return html`<li data-item=${props.text}>${props.text} ${props.children}</li>`
+  return html`<li data-item=${props.text}>${props.text} ${props.children}</li>`;
 }

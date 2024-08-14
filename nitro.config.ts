@@ -21,4 +21,18 @@ export default defineNitroConfig({
       base: 'public',
     }
   },
+  // storage: {
+  //   users: {
+  //     driver: "cloudflare-kv-binding",
+  //     binding: 'USERS'
+  //   },
+  //   comments: {
+  //     driver: "cloudflare-kv-binding",
+  //     binding: 'COMMENTS'
+  //   },
+  //   public: {
+  //     driver: 'memory',
+  //     base: 'public',
+  //   }
+  // },
 });
