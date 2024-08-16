@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "build": "unocss server/**/*.ts -o public/css/uno.css && nitro build",
+    "build": "unocss && nitro build",
+    "css": "unocss -w",
     "dev": "nitro dev",
     "prepare": "nitro prepare",
     "preview": "node .output/server/index.mjs"

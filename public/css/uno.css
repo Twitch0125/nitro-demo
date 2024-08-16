@@ -18,7 +18,9 @@
 .container{max-width:1536px;}
 }
 /* layer: default */
-.max-w-60ch{max-width:60ch;}
+.max-w-page{max-width:60ch;}
+.flex{display:flex;}
+.gap-4{gap:1rem;}
 .text-xs{font-size:0.75rem;line-height:1rem;}
 .text-\$pico-primary{color:var(--pico-primary) /* var(--pico-primary) */;}
 .text-\$pico-secondary{color:var(--pico-secondary) /* var(--pico-secondary) */;}
