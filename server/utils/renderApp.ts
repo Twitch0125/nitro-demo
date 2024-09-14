@@ -18,13 +18,14 @@ export async function renderApp(event: H3Event, App: () => string | string[]) {
           ></script>
           <!-- HTMX Server Sent Events (SSE) extension -->
           <script src="https://unpkg.com/htmx-ext-sse@2.2.2/sse.js"></script>
+          <script src="https://unpkg.com/idiomorph/dist/idiomorph-ext.min.js"></script>
           <link rel="stylesheet" href="css/uno.css" />
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
           />
         </head>
-        <body>
+        <body hx-ext="morph" hx-ext="sse">
           <${Navigation}> <${Profile} /> <//>
           <${App} />
         </body>

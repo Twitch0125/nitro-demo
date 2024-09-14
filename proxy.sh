@@ -1,0 +1,1 @@
+caddy reverse-proxy --from localhost:443 --to http://localhost:3000

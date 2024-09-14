@@ -10,7 +10,7 @@ export default eventHandler(async (event) => {
     })
   );
   return html`
-    <div hx-boost="true" id="comments">
+    <div id="comments">
       <ul>
         ${comments.map(
           (c) =>
@@ -21,11 +21,7 @@ export default eventHandler(async (event) => {
             <//>`
         )}
       </ul>
-      <form
-        name="createComments"
-        hx-post="/comment"
-        hx-target="#comments"
-      >
+      <form name="createComments" hx-post="/comment" hx-target="#comments">
         ${!userId && html`<span> Not logged in, no commenting for you! </span>`}
         <textarea
           disabled=${!userId}
