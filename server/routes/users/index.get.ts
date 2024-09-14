@@ -1,5 +1,5 @@
-export default eventHandler(() => {
-  return renderApp(() => html`
+export default eventHandler((event) => {
+  return renderApp(event,() => html`
     <section class="container max-w-page">
       <form action="/users" method="post">
         <label>

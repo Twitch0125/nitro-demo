@@ -1,5 +1,5 @@
-export default eventHandler(async () => {
-  const userId = useUserId();
+export default eventHandler(async (event) => {
+  const userId = useUserId(event);
   const cs = useStorage("comments");
   const keys = await cs.getKeys();
   const comments = await Promise.all(
@@ -9,10 +9,9 @@ export default eventHandler(async () => {
       return { key, value: { text: comment.text, user: user } };
     })
   );
-  console.log("user???", userId);
   return html`
-    <div>
-      <ul id="comments">
+    <div hx-boost="true" id="comments">
+      <ul>
         ${comments.map(
           (c) =>
             html`<${ListItem} text=${c.value.text}>
@@ -24,11 +23,8 @@ export default eventHandler(async () => {
       </ul>
       <form
         name="createComments"
-        x-init
-        x-target="comments"
-        method="post"
-        action="/comment"
-        @ajax:success="document.forms.createComments.reset()"
+        hx-post="/comment"
+        hx-target="#comments"
       >
         ${!userId && html`<span> Not logged in, no commenting for you! </span>`}
         <textarea
