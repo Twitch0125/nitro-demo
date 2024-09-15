@@ -1,3 +1,4 @@
+
 export default eventHandler(async (event) => {
   const body = await readBody(event);
   const username = body.username;
@@ -5,6 +6,7 @@ export default eventHandler(async (event) => {
   const keys = await us.getKeys();
   const id = keys.length + 1;
   await us.setItem(id.toString(), { username, id });
-  setCookie(event, "user", id.toString());
-  return sendRedirect(event, '/users')
+  const user = await useUser(event);
+  await user.update({ id: id });
+  return sendRedirect(event, "/users");
 });

@@ -1,8 +1,9 @@
 export default eventHandler(async (event) => {
-  const { userId } = getQuery(event);
-  if(!userId) return html`<div>Invalid user</div>`;
-  const user = await useStorage("users").getItem(userId);
-  return html`<div>
-    <span class="text-$pico-primary"> ${user}</span>
+  const { data: user } = await useUser(event);
+  if (user?.id == null) return html`<div>No logged in</div>`;
+  const { username } = await useStorage("users").getItem(user.id);
+  return html` <div id="profile">
+    <span class="text-$pico-primary"> ${username} </span>
+    <button hx-delete="/profile" hx-target="#profile">Logout</button>
   </div>`;
 });

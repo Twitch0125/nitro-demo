@@ -1,7 +1,6 @@
 import type { H3Event } from "h3";
 export async function renderApp(event: H3Event, App: () => string | string[]) {
-  const userId = useUserId(event);
-  const profile = await $fetch("/users/" + userId, {
+  const profile = await $fetch("/profile", {
     headers: getHeaders(event),
   });
   const Profile = () => html`${profile}`;

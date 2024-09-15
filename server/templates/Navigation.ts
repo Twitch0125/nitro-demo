@@ -1,4 +1,4 @@
-export default (props) => html` <nav class="container max-w-page">
+const Navigation = (props) => html` <nav class="container max-w-page">
   <ul class="flex gap-4">
     <a href="/">Home</a>
     <a href="/users"> Users </a>
@@ -7,3 +7,4 @@ export default (props) => html` <nav class="container max-w-page">
     ${props.children}
   </ul>
 </nav>`;
+export default Navigation;

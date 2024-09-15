@@ -1,5 +1,5 @@
 export default eventHandler(async (event) => {
-  const userId = useUserId(event);
+  const { data: user } = await useUser(event);
   const cs = useStorage("comments");
   const keys = await cs.getKeys();
   const comments = await Promise.all(
@@ -22,9 +22,10 @@ export default eventHandler(async (event) => {
         )}
       </ul>
       <form name="createComments" hx-post="/comment" hx-target="#comments">
-        ${!userId && html`<span> Not logged in, no commenting for you! </span>`}
+        ${!user.id &&
+        html`<span> Not logged in, no commenting for you! </span>`}
         <textarea
-          disabled=${!userId}
+          disabled=${!user.id}
           aria-label="Comment text"
           name="text"
           required
