@@ -9,22 +9,19 @@ export async function renderApp(event: H3Event, App: () => string | string[]) {
     html`
       <html>
         <head>
-          <!-- HTMX -->
+          <!-- Datastar -->
           <script
-            src="https://unpkg.com/htmx.org@2.0.2"
-            integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ"
-            crossorigin="anonymous"
+            type="module"
+            defer
+            src="https://cdn.jsdelivr.net/npm/@sudodevnull/datastar"
           ></script>
-          <!-- HTMX Server Sent Events (SSE) extension -->
-          <script src="https://unpkg.com/htmx-ext-sse@2.2.2/sse.js"></script>
-          <script src="https://unpkg.com/idiomorph/dist/idiomorph-ext.min.js"></script>
           <link rel="stylesheet" href="css/uno.css" />
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
           />
         </head>
-        <body hx-ext="morph" hx-ext="sse">
+        <body>
           <${Navigation}> <${Profile} /> <//>
           <${App} />
         </body>

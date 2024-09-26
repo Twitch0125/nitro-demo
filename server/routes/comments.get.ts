@@ -10,7 +10,7 @@ export default eventHandler(async (event) => {
     })
   );
   return html`
-    <div id="comments">
+    <div data-store="{text: ''}" id="comments">
       <ul>
         ${comments.map(
           (c) =>
@@ -21,7 +21,7 @@ export default eventHandler(async (event) => {
             <//>`
         )}
       </ul>
-      <form name="createComments" hx-post="/comment" hx-target="#comments">
+      <form data-on-submit="event.preventDefault();$$post('/comment'); $text = ''"   name="createComments">
         ${!user.id &&
         html`<span> Not logged in, no commenting for you! </span>`}
         <textarea
@@ -29,6 +29,7 @@ export default eventHandler(async (event) => {
           aria-label="Comment text"
           name="text"
           required
+          data-model="text"
         />
         <button>Submit</button>
       </form>

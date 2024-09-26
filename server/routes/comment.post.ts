@@ -7,5 +7,6 @@ export default eventHandler(async (event) => {
     userId: user.id,
   });
   commentsEmitter.emit(body.text);
-  return await $fetch("/comments", { headers: getHeaders(event) });
+  const stream = createEventStream(event); 
+  return stream.send();
 });
